@@ -185,6 +185,8 @@
   <ItemGroup>
     <Resource Include="icon_paper_company_database.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="A-Paper-Company-Database.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

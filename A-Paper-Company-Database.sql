@@ -1,35 +1,3 @@
--- --------------------------------------------------------------------
--- Filename:   JHM-ICTPRG402-Portfolio-SQL-1.txt
--- Author:     JOANNE HELEN MANA
--- Email:      20093755@tafe.wa.edu.au
--- --------------------------------------------------------------------
--- Purpose:   
---    This file contains the SQL used to create and execute 
---    the solutions for the assessment ICTPRG402 Portfolio
--- --------------------------------------------------------------------
--- Declaration:
---    By completing and submitting this assessment 
---    via the Blackboard LMS or other methods, to my 
---    lecturer, I am stating that: 
---      * The attached submission is completely own work 
---      * I have correctly indicated all sources of information
---        used in this work (if required) 
---      * I have kept a copy of this assessment (where practicable)
---      * I understand a copy of my assessment will be kept by
---        NMTAFE for their records 
---      * I understand my assessment may be selected for use in
---        NMTAFE’s validation and audit process to ensure student 
---        assessment is valid and meets requirements of the unit 
---        of competency
--- --------------------------------------------------------------------
---
--- Add your SQL between each heading comment as required.
---
--- --------------------------------------------------------------------
-
--- --------------------------------------------------------------------
--- Q01 CREATE DATABASE AND USER
--- --------------------------------------------------------------------
 CREATE USER 'jhm_ictprg402'@'localhost'
 	IDENTIFIED BY 'averystrongpass';
 
@@ -37,10 +5,7 @@ GRANT USAGE ON *.* TO 'jhm_ictprg402'@'localhost';
 
 CREATE DATABASE
 	IF NOT EXISTS `jhm_ictprg402`;
-    
--- --------------------------------------------------------------------
--- Q02 EMPLOYEES TABLE
--- --------------------------------------------------------------------
+
 USE `jhm_ictprg402`;
 
 CREATE TABLE `employees` (
@@ -74,10 +39,7 @@ VALUES
     ('1969-09-05', 106, 'Porter', 3, 100, 'Josh', 78000, 'M'),
     ('1973-07-22', 107, 'Bernard', 3, 106, 'Andy', 65000, 'M'),
     ('1978-10-01', 108, 'Halpert', 3, 106, 'Jen', 71000, 'F');
-    
--- --------------------------------------------------------------------
--- Q03 BRANCHES TABLE
--- --------------------------------------------------------------------
+
 CREATE TABLE `branches` (
     `id`                  BIGINT        UNSIGNED NOT NULL AUTO_INCREMENT,
     `branch_name`         VARCHAR(64),
@@ -95,9 +57,6 @@ VALUES
     (2, 'Scranton',   102, "1992-04-06"),
     (3, 'Stamford',   106, "1998-02-13");
 
--- --------------------------------------------------------------------
--- Q04 CLIENTS TABLE
--- --------------------------------------------------------------------
 CREATE TABLE `clients` (
     `id`                  BIGINT        UNSIGNED NOT NULL AUTO_INCREMENT,
     `client_name`         VARCHAR(64)	DEFAULT 'ERROR' NOT NULL,
@@ -118,9 +77,6 @@ VALUES
     (405, 'Times Newspaper', 3),
     (406, 'FedEx', 2);
     
--- --------------------------------------------------------------------
--- Q05 WORKING WITH TABLE
--- --------------------------------------------------------------------
 CREATE TABLE `working_with` (
     `employee_id`   BIGINT     UNSIGNED NOT NULL DEFAULT 0,
     `client_id`     BIGINT     UNSIGNED NOT NULL DEFAULT 0,
@@ -143,9 +99,6 @@ VALUES
     (102, 406, 15000),
     (105, 406, 130000);
 
--- --------------------------------------------------------------------
--- Q06 BRANCH SUPPLIER TABLE 
--- --------------------------------------------------------------------
 CREATE TABLE `branch_supplier` (
 	`id`				BIGINT		UNSIGNED AUTO_INCREMENT,
     `branch_id`			BIGINT     	UNSIGNED NOT NULL,
@@ -166,34 +119,3 @@ VALUES
     (3, 'Uni-Ball', 'Writing Instruments'),
     (3, 'Hammer Mill', 'Paper'),
     (3, 'Stamford Labels', 'Custom Forms');
-
--- --------------------------------------------------------------------
--- Q07 DUMMY TABLE
--- --------------------------------------------------------------------
-CREATE TABLE `dummy`(
-	`employee_id`	INT,
-    `employee_name`	VARCHAR(20)
-    );
-    
--- --------------------------------------------------------------------
--- Q08 ALTERING WORKS WITH TABLE STRUCTURE
--- --------------------------------------------------------------------
-ALTER TABLE `working_with`
-	ADD `profit` INT;
-
--- --------------------------------------------------------------------
--- Q09 RENAME THE DUMMY TABLE
--- --------------------------------------------------------------------
-ALTER TABLE `dummy`
-	RENAME TO `almost_dummy`;
-    
--- --------------------------------------------------------------------
--- Q10 REMOVING A FIELD FROM A TABLE
--- --------------------------------------------------------------------
-ALTER TABLE `working_with`
-	DROP COLUMN `profit`;
-    
--- --------------------------------------------------------------------
--- Q11 DESCRIBING TABLE STRUCTURES
--- --------------------------------------------------------------------
-DESCRIBE `branch_supplier`;
